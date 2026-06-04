@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Pabb ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffb347,#ff69b4);
+overflow:hidden;
+text-align:center;
+}
+
+h1{
+color:white;
+font-size:40px;
+padding:20px;
+}
+
+button{
+padding:15px 40px;
+font-size:24px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:15px;
+}
+
+#yes{
+background:#ff1493;
+color:white;
+}
+
+#no{
+background:white;
+color:black;
+}
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:float 5s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100px);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will you forever be mine? ❤️</h1>
+
+<button id="yes">Yes 💕</button>
+<button id="no">No 😏</button>
+
+<script>
+
+const yesBtn=document.getElementById("yes");
+const noBtn=document.getElementById("no");
+
+let scale=1;
+
+function moveNoButton(){
+const maxX=window.innerWidth-noBtn.offsetWidth;
+const maxY=window.innerHeight-noBtn.offsetHeight;
+
+noBtn.style.position="fixed";
+noBtn.style.left=Math.random()*maxX+"px";
+noBtn.style.top=Math.random()*maxY+"px";
+
+scale+=0.15;
+yesBtn.style.transform=`scale(${scale})`;
+}
+
+noBtn.addEventListener("mouseover",moveNoButton);
+noBtn.addEventListener("click",moveNoButton);
+noBtn.addEventListener("touchstart",moveNoButton);
+
+yesBtn.onclick=function(){
+document.body.innerHTML=`
+<h1>Yay! ❤️</h1>
+<h2>You just made me the happiest person 💕</h2>
+`;
+};
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+}
+
+setInterval(createHeart,600);
+
+</script>
+
+</body>
+</html>

@@ -58,7 +58,8 @@ animation:float 5s linear infinite;
 
 <body>
 
-<h1> Tui ki mor gu 💩 khete raji achis? ❤️</h1>
+<h1> Will you forever be mine? ❤️</h1>
+  <p id="comment" style="color:white;font-size:22px;font-weight:bold;"></p>
 
 <button id="yes">Yes 💕</button>
 <button id="no">No 😏</button>
@@ -69,6 +70,15 @@ const yesBtn=document.getElementById("yes");
 const noBtn=document.getElementById("no");
 
 let scale=1;
+  const comments = [
+"Nice try 😜",
+"No button is not working 😂",
+"Come on, click Yes ❤️",
+"You can't escape 😏",
+"Wrong answer 🤭",
+"Try again 😆",
+"Yes is the only option 💕"
+];
 
 function moveNoButton(){
 const maxX=window.innerWidth-noBtn.offsetWidth;
@@ -80,6 +90,8 @@ noBtn.style.top=Math.random()*maxY+"px";
 
 scale+=0.15;
 yesBtn.style.transform=`scale(${scale})`;
+  document.getElementById("comment").innerText =
+comments[Math.floor(Math.random()*comments.length)];
 }
 
 noBtn.addEventListener("mouseover",moveNoButton);
